@@ -1,0 +1,430 @@
+/* ============================================
+   PUBLIC THEME - DARK & LIGHT MODE
+   Untuk web resto public tanpa mengubah struktur asli
+   ============================================ */
+
+/* ============================================
+   LIGHT MODE - DEFAULT
+   ============================================ */
+
+/* Background dan card */
+.bg-\[\#FFFDF7\] {
+  background-color: #FFFDF7 !important;
+}
+
+.bg-\[\#18181B\] {
+  background-color: #18181B !important;
+}
+
+.border-\[\#18181B\] {
+  border-color: #18181B !important;
+}
+
+/* Teks */
+.text-\[\#18181B\] {
+  color: #18181B !important;
+}
+
+.text-\[\#18181B\]\/70 {
+  color: rgba(24, 24, 27, 0.7) !important;
+}
+
+.text-\[\#18181B\]\/50 {
+  color: rgba(24, 24, 27, 0.5) !important;
+}
+
+.text-\[\#18181B\]\/30 {
+  color: rgba(24, 24, 27, 0.3) !important;
+}
+
+/* Warna brand */
+.text-\[\#7F1D1D\] {
+  color: #7F1D1D !important;
+}
+
+.bg-\[\#7F1D1D\] {
+  background-color: #7F1D1D !important;
+}
+
+.border-\[\#7F1D1D\] {
+  border-color: #7F1D1D !important;
+}
+
+.text-\[\#C9A227\] {
+  color: #C9A227 !important;
+}
+
+.bg-\[\#C9A227\] {
+  background-color: #C9A227 !important;
+}
+
+.border-\[\#C9A227\] {
+  border-color: #C9A227 !important;
+}
+
+.bg-\[\#C9A227\]\/10 {
+  background-color: rgba(201, 162, 39, 0.1) !important;
+}
+
+.bg-\[\#C9A227\]\/20 {
+  background-color: rgba(201, 162, 39, 0.2) !important;
+}
+
+.bg-\[\#C9A227\]\/30 {
+  background-color: rgba(201, 162, 39, 0.3) !important;
+}
+
+/* Shadow */
+.shadow-\[8px_8px_0px_\#18181B\] {
+  box-shadow: 8px 8px 0px #18181B !important;
+}
+
+.shadow-\[6px_6px_0px_\#18181B\] {
+  box-shadow: 6px 6px 0px #18181B !important;
+}
+
+.shadow-\[4px_4px_0px_\#18181B\] {
+  box-shadow: 4px 4px 0px #18181B !important;
+}
+
+.shadow-\[3px_3px_0px_\#18181B\] {
+  box-shadow: 3px 3px 0px #18181B !important;
+}
+
+.shadow-\[2px_2px_0px_\#18181B\] {
+  box-shadow: 2px 2px 0px #18181B !important;
+}
+
+/* ============================================
+   DARK MODE OVERRIDE
+   ============================================ */
+
+.dark .bg-\[\#FFFDF7\] {
+  background-color: #1a1e26 !important;
+}
+
+.dark .border-\[\#18181B\] {
+  border-color: #2d3440 !important;
+}
+
+.dark .border-\[\#18181B\]\/20 {
+  border-color: rgba(45, 52, 64, 0.3) !important;
+}
+
+/* Teks di dark mode */
+.dark .text-\[\#18181B\] {
+  color: #e8edf5 !important;
+}
+
+.dark .text-\[\#18181B\]\/70 {
+  color: #b0b8c8 !important;
+}
+
+.dark .text-\[\#18181B\]\/50 {
+  color: #8892a8 !important;
+}
+
+.dark .text-\[\#18181B\]\/30 {
+  color: #4d5566 !important;
+}
+
+.dark .text-\[\#18181B\]\/20 {
+  color: #3a4050 !important;
+}
+
+/* Warna brand di dark mode */
+.dark .text-\[\#7F1D1D\] {
+  color: #D68A8A !important;
+}
+
+.dark .bg-\[\#7F1D1D\] {
+  background-color: #7A3535 !important;
+  background: linear-gradient(145deg, #7A3535 0%, #6A2E2E 100%) !important;
+}
+
+.dark .border-\[\#7F1D1D\] {
+  border-color: #8A4040 !important;
+}
+
+.dark .text-\[\#C9A227\] {
+  color: #b8a050 !important;
+}
+
+.dark .bg-\[\#C9A227\] {
+  background-color: #9a8540 !important;
+  background: linear-gradient(145deg, #9a8540 0%, #8a7535 100%) !important;
+}
+
+.dark .border-\[\#C9A227\] {
+  border-color: #9a8540 !important;
+}
+
+.dark .bg-\[\#C9A227\]\/10 {
+  background-color: rgba(154, 133, 64, 0.12) !important;
+}
+
+.dark .bg-\[\#C9A227\]\/20 {
+  background-color: rgba(154, 133, 64, 0.20) !important;
+}
+
+.dark .bg-\[\#C9A227\]\/30 {
+  background-color: rgba(154, 133, 64, 0.30) !important;
+}
+
+/* Shadow di dark mode */
+.dark .shadow-\[8px_8px_0px_\#18181B\] {
+  box-shadow: 8px 8px 0px #1a1e26 !important;
+}
+
+.dark .shadow-\[6px_6px_0px_\#18181B\] {
+  box-shadow: 6px 6px 0px #1a1e26 !important;
+}
+
+.dark .shadow-\[4px_4px_0px_\#18181B\] {
+  box-shadow: 4px 4px 0px #1a1e26 !important;
+}
+
+.dark .shadow-\[3px_3px_0px_\#18181B\] {
+  box-shadow: 3px 3px 0px #1a1e26 !important;
+}
+
+.dark .shadow-\[2px_2px_0px_\#18181B\] {
+  box-shadow: 2px 2px 0px #1a1e26 !important;
+}
+
+.dark .shadow-\[-8px_0_0px_\#18181B\] {
+  box-shadow: -8px 0 0px #1a1e26 !important;
+}
+
+/* Hover effects di dark mode */
+.dark .hover\:bg-\[\#C9A227\]\/20:hover {
+  background-color: rgba(154, 133, 64, 0.12) !important;
+}
+
+.dark .hover\:bg-\[\#C9A227\]\/10:hover {
+  background-color: rgba(154, 133, 64, 0.08) !important;
+}
+
+.dark .hover\:shadow-\[10px_10px_0px_\#18181B\]:hover {
+  box-shadow: 10px 10px 0px #1a1e26 !important;
+}
+
+.dark .hover\:shadow-\[12px_12px_0px_\#18181B\]:hover {
+  box-shadow: 12px 12px 0px #1a1e26 !important;
+}
+
+.dark .hover\:shadow-\[6px_6px_0px_\#18181B\]:hover {
+  box-shadow: 6px 6px 0px #1a1e26 !important;
+}
+
+/* Mobile menu di dark mode */
+.dark .border-l-4.border-\[\#18181B\] {
+  border-left-color: #2d3440 !important;
+}
+
+.dark .bg-\[\#18181B\]\/80 {
+  background-color: rgba(26, 30, 38, 0.85) !important;
+}
+
+/* Input di dark mode */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #1a1e26 !important;
+  border-color: #2d3440 !important;
+  color: #e8edf5 !important;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #2a7a5e !important;
+  box-shadow: 0 0 0 3px rgba(42, 122, 94, 0.15) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #6b7488 !important;
+}
+
+/* Button di dark mode */
+.dark button.bg-\[\#7F1D1D\] {
+  background-color: #7A3535 !important;
+  background: linear-gradient(145deg, #7A3535 0%, #6A2E2E 100%) !important;
+}
+
+.dark button.bg-\[\#7F1D1D\]:hover {
+  background-color: #8A4040 !important;
+  background: linear-gradient(145deg, #8A4040 0%, #7A3535 100%) !important;
+}
+
+/* Link di dark mode */
+.dark a.text-\[\#18181B\] {
+  color: #e8edf5 !important;
+}
+
+.dark a.text-\[\#18181B\]:hover {
+  color: #ffffff !important;
+}
+
+/* Border bottom di dark mode */
+.dark .border-b-4.border-\[\#18181B\] {
+  border-bottom-color: #2d3440 !important;
+}
+
+.dark .border-t-4.border-\[\#18181B\] {
+  border-top-color: #2d3440 !important;
+}
+
+.dark .border-r-4.border-\[\#18181B\] {
+  border-right-color: #2d3440 !important;
+}
+
+/* Scrollbar di dark mode */
+.dark ::-webkit-scrollbar-track {
+  background: #1a1e26 !important;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2d3440 !important;
+  border-color: #1a1e26 !important;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3a4050 !important;
+}
+
+/* Toast notifikasi di dark mode */
+.dark .border-2.border-\[\#18181B\] {
+  border-color: #2d3440 !important;
+}
+
+.dark .bg-\[\#065F46\] {
+  background-color: #1a6b4f !important;
+}
+
+.dark .text-\[\#065F46\] {
+  color: #3a9a78 !important;
+}
+
+.dark .border-\[\#065F46\] {
+  border-color: #1a6b4f !important;
+}
+
+.dark .bg-\[\#065F46\]\/10 {
+  background-color: rgba(26, 107, 79, 0.12) !important;
+}
+
+/* Status badge di dark mode */
+.dark .border-\[\#7F1D1D\].bg-\[\#7F1D1D\]\/10 {
+  background-color: rgba(139, 58, 58, 0.12) !important;
+  border-color: #8A4040 !important;
+}
+
+.dark .border-\[\#7F1D1D\].bg-\[\#7F1D1D\]\/10.text-\[\#7F1D1D\] {
+  color: #D68A8A !important;
+}
+
+/* Empty state di dark mode */
+.dark .border-4.border-dashed.border-\[\#18181B\]\/20 {
+  border-color: rgba(45, 52, 64, 0.3) !important;
+}
+
+.dark .text-\[\#18181B\]\/20 {
+  color: #3a4050 !important;
+}
+
+/* Card di dark mode */
+.dark .border-2.border-\[\#18181B\].bg-\[\#FFFDF7\] {
+  background-color: #232833 !important;
+  border-color: #2d3440 !important;
+}
+
+.dark .border-2.border-\[\#18181B\].bg-\[\#18181B\] {
+  background-color: #232833 !important;
+  border-color: #2d3440 !important;
+}
+
+.dark .bg-\[\#18181B\]\/60 {
+  background-color: rgba(26, 30, 38, 0.6) !important;
+}
+
+/* Hero / section di dark mode */
+.dark .border-b-4.border-\[\#18181B\].bg-\[\#FFFDF7\] {
+  background-color: #1a1e26 !important;
+  border-bottom-color: #2d3440 !important;
+}
+
+.dark section.bg-\[\#FFFDF7\] {
+  background-color: #1a1e26 !important;
+}
+
+/* Footer di dark mode */
+.dark footer.bg-\[\#FFFDF7\] {
+  background-color: #1a1e26 !important;
+}
+
+.dark .border-t-4.border-\[\#18181B\].bg-\[\#FFFDF7\] {
+  background-color: #1a1e26 !important;
+  border-top-color: #2d3440 !important;
+}
+
+/* ============================================
+   TRANSISI HALUS
+   ============================================ */
+
+.bg-\[\#FFFDF7\],
+.border-\[\#18181B\],
+.text-\[\#18181B\],
+.shadow-\[8px_8px_0px_\#18181B\],
+.shadow-\[6px_6px_0px_\#18181B\],
+.shadow-\[4px_4px_0px_\#18181B\],
+.shadow-\[3px_3px_0px_\#18181B\],
+.shadow-\[2px_2px_0px_\#18181B\] {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* ============================================
+   RESPONSIVE - DARK MODE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .dark .border-\[\#18181B\] {
+    border-color: #2d3440 !important;
+  }
+  
+  .dark .bg-\[\#FFFDF7\] {
+    background-color: #1a1e26 !important;
+  }
+}
+
+/* ============================================
+   STATUS PENDING PAYMENT - DARK MODE FIX
+   ============================================ */
+
+.dark .border-\[\#C9A227\].bg-\[\#C9A227\]\/10 {
+  background-color: rgba(154, 133, 64, 0.12) !important;
+  border-color: #9a8540 !important;
+}
+
+.dark .border-\[\#C9A227\].bg-\[\#C9A227\]\/15 {
+  background-color: rgba(154, 133, 64, 0.18) !important;
+  border-color: #9a8540 !important;
+}
+
+/* Tombol Lanjutkan Pembayaran di dark mode */
+.dark button.bg-\[\#7F1D1D\].border-4.border-\[\#18181B\] {
+  background-color: #7A3535 !important;
+  background: linear-gradient(145deg, #7A3535 0%, #6A2E2E 100%) !important;
+  border-color: #2d3440 !important;
+  color: #e8edf5 !important;
+}
+
+.dark button.bg-\[\#7F1D1D\].border-4.border-\[\#18181B\]:hover {
+  background-color: #8A4040 !important;
+  background: linear-gradient(145deg, #8A4040 0%, #7A3535 100%) !important;
+}
+
+.dark button.bg-\[\#7F1D1D\].border-4.border-\[\#18181B\]:disabled {
+  opacity: 0.5 !important;
+}

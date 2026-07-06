@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =============================================
+   SETIA RASA — Neubrutalism Theme (Sama dengan Dashboard)
+   Brand: Burgundy #7F1D1D | Gold #C9A227
+          Emerald #065F46 | Ivory #FFFDF7
+          Charcoal #18181B
+   ============================================= */
+
+@layer base {
+  :root {
+    --background: 45 100% 98%;
+    --foreground: 240 6% 10%;
+    --primary: 163 88% 20%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 100% 98%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 45 62% 93%;
+    --muted-foreground: 240 4% 38%;
+    --accent: 45 67% 47%;
+    --accent-foreground: 240 6% 10%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 45 67% 47%;
+    --input: 45 67% 47%;
+    --ring: 163 88% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 6% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 6% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 6% 10%;
+    --foreground: 45 100% 98%;
+    --primary: 163 88% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 63% 22%;
+    --secondary-foreground: 45 100% 98%;
+    --muted: 240 5% 18%;
+    --muted-foreground: 45 35% 76%;
+    --accent: 45 67% 53%;
+    --accent-foreground: 240 6% 10%;
+    --destructive: 0 63% 36%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 45 67% 53%;
+    --input: 45 67% 53%;
+    --ring: 163 88% 28%;
+    --card: 240 5% 14%;
+    --card-foreground: 45 100% 98%;
+    --popover: 240 5% 14%;
+    --popover-foreground: 45 100% 98%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    background-color: hsl(var(--background));
+    scroll-behavior: smooth;
+  }
+  html, body, #root {
+    min-height: 100%;
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  ::selection {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+}
+
+/* =============================================
+   NEUBRUTALISM UTILITIES (Sama dengan Dashboard)
+   ============================================= */
+
+@layer utilities {
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  .bg-card {
+    background-color: hsl(var(--card));
+  }
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(201, 162, 39, 0); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-slide-down { animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-scale-in { animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-gold { animation: pulseGold 2s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* =============================================
+   SCROLLBAR (Sama dengan Dashboard)
+   ============================================= */
+
+* { scrollbar-width: thin; scrollbar-color: #7F1D1D #18181B; }
+*::-webkit-scrollbar { width: 8px; }
+*::-webkit-scrollbar-track { background: #18181B; }
+*::-webkit-scrollbar-thumb { background: #7F1D1D; border: 2px solid #18181B; }
+
+.dark *::-webkit-scrollbar-track { background: #18181B; }
+.dark *::-webkit-scrollbar-thumb { background: #7F1D1D; border: 2px solid #FFFDF7; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; }
+}
+
+/* =============================================
+   DARK MODE - PUBLIC THEME FIX
+   ============================================= */
+
+/* Pastikan dark mode class bekerja */
+.dark {
+  color-scheme: dark;
+}
+
+/* Background utama di dark mode */
+.dark body {
+  background-color: #1a1e26;
+}
+
+.dark #root {
+  background-color: #1a1e26;
+}
+
+/* Link di dark mode */
+.dark a {
+  color: #e8edf5;
+}
+
+.dark a:hover {
+  color: #ffffff;
+}
+
+/* Tombol toggle theme di dark mode */
+.dark button.bg-\[\#FFFDF7\] {
+  background-color: #1a1e26 !important;
+  border-color: #2d3440 !important;
+}
+
+.dark button.bg-\[\#FFFDF7\]:hover {
+  background-color: #232833 !important;
+}
+
+/* Border di dark mode */
+.dark .border-\[\#18181B\]\/20 {
+  border-color: rgba(45, 52, 64, 0.3) !important;
+}
+
+.dark .border-\[\#18181B\]\/10 {
+  border-color: rgba(45, 52, 64, 0.15) !important;
+}
+
+/* Shadow di dark mode - fix untuk hover */
+.dark .hover\:shadow-\[10px_10px_0px_\#18181B\]:hover {
+  box-shadow: 10px 10px 0px #1a1e26 !important;
+}
+
+.dark .hover\:shadow-\[12px_12px_0px_\#18181B\]:hover {
+  box-shadow: 12px 12px 0px #1a1e26 !important;
+}
+
+.dark .hover\:shadow-\[8px_8px_0px_\#18181B\]:hover {
+  box-shadow: 8px 8px 0px #1a1e26 !important;
+}
+
+.dark .hover\:shadow-\[6px_6px_0px_\#18181B\]:hover {
+  box-shadow: 6px 6px 0px #1a1e26 !important;
+}
+
+.dark .hover\:shadow-\[4px_4px_0px_\#18181B\]:hover {
+  box-shadow: 4px 4px 0px #1a1e26 !important;
+}
+
+/* Active shadow di dark mode */
+.dark .active\:shadow-\[2px_2px_0px_\#18181B\]:active {
+  box-shadow: 2px 2px 0px #1a1e26 !important;
+}
+
+.dark .active\:shadow-\[4px_4px_0px_\#18181B\]:active {
+  box-shadow: 4px 4px 0px #1a1e26 !important;
+}
+
+.dark .active\:shadow-\[1px_1px_0px_\#18181B\]:active {
+  box-shadow: 1px 1px 0px #1a1e26 !important;
+}
