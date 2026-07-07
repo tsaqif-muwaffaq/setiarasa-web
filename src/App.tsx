@@ -848,18 +848,29 @@ function CheckOrderStatus() {
     retry: false,
   });
 
+  // ✅ Tambahkan useEffect untuk debugging
+  useEffect(() => {
+    if (orderId) {
+      console.log('[CheckOrderStatus] Order ID:', orderId);
+    }
+  }, [orderId]);
+
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (searchInput.trim()) setOrderId(searchInput.trim());
   };
 
+  // ✅ Perbaiki fungsi handleLanjutkanPembayaran dengan blok finally
   const handleLanjutkanPembayaran = async (currentOrder: OrderStatusResponse) => {
     if (!orderId) return;
     
     setIsPaymentLoading(true);
     
     try {
-      const res = await axios.post('http://localhost:5000/api/payments/create', {
+      // Gunakan environment variable untuk API URL
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      
+      const res = await axios.post(`${API_URL}/api/payments/create`, {
         orderId: orderId,
         amount: currentOrder.totalAmount,
         customerName: currentOrder.customerName,
@@ -868,9 +879,7 @@ function CheckOrderStatus() {
       const { token } = res.data;
 
       if (!token) {
-        alert('Gagal mendapatkan token pembayaran.');
-        setIsPaymentLoading(false);
-        return;
+        throw new Error('Gagal mendapatkan token pembayaran.');
       }
 
       // @ts-ignore
@@ -883,19 +892,36 @@ function CheckOrderStatus() {
           alert('⏳ Menunggu pembayaran diselesaikan.');
           refetch();
         },
-        onError: () => {
-          alert('❌ Pembayaran gagal.');
+        onError: (error: any) => {
+          console.error('Midtrans Error:', error);
+          alert('❌ Pembayaran gagal. Silakan coba lagi.');
+          refetch();
         },
         onClose: () => {
           alert('Anda menutup layar pembayaran sebelum selesai.');
         },
       });
     } catch (error) {
-      console.error('Error:', error);
-      alert('Gagal memuat ulang pembayaran.');
+      console.error('[CheckOrderStatus] Error detail:', error);
+      
+      // Tampilkan pesan error yang lebih informatif
+      let errorMessage = 'Gagal memuat pembayaran.';
+      if (axios.isAxiosError(error)) {
+        const serverMessage = error.response?.data?.message;
+        if (serverMessage) {
+          errorMessage = serverMessage;
+        } else if (error.code === 'ERR_NETWORK') {
+          errorMessage = 'Koneksi ke server gagal. Periksa koneksi internet Anda.';
+        }
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      
+      alert(`❌ ${errorMessage}`);
+    } finally {
+      // ✅ KRUSIAL: Reset loading state di finally block
+      setIsPaymentLoading(false);
     }
-    
-    setIsPaymentLoading(false);
   };
 
   const progressWidth = order
@@ -904,7 +930,7 @@ function CheckOrderStatus() {
     : '0%'
     : '0%';
 
-return (
+  return (
     <section className="flex min-h-[calc(100vh-180px)] flex-col items-center justify-center bg-[#FFFDF7] px-4 py-16 dark:bg-[#18181B] sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="mx-auto max-w-3xl w-full space-y-8">
         <div className="space-y-4 text-center">
@@ -1012,24 +1038,24 @@ return (
             </div>
 
             {(order.status === 'PENDING' || order.status === 'PENDING_PAYMENT') && (
-  <div className="mt-6 border-2 border-[#C9A227] bg-[#C9A227]/10 p-4 dark:border-[#C9A227] dark:bg-[#C9A227]/15">
-    <p className="text-sm font-bold text-[#18181B] dark:text-[#FFFDF7]">
-      ⚠️ Pesanan Anda belum dibayar.
-    </p>
-    <p className="mt-1 text-xs font-bold text-[#18181B]/70 dark:text-[#FFFDF7]/70">
-      Selesaikan pembayaran Anda menggunakan QRIS atau metode lainnya agar pesanan dapat segera diproses oleh dapur.
-    </p>
-    <button
-      type="button"
-      onClick={() => handleLanjutkanPembayaran(order)}
-      disabled={isPaymentLoading}
-      className="mt-4 inline-flex w-full items-center justify-center gap-2 bg-[#7F1D1D] px-5 py-3 text-sm font-black text-[#FFFDF7] border-4 border-[#18181B] shadow-[6px_6px_0px_#18181B] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_#18181B] disabled:cursor-not-allowed disabled:opacity-50 dark:border-[#FFFDF7] dark:shadow-[6px_6px_0px_#FFFDF7] dark:hover:shadow-[10px_10px_0px_#FFFDF7]"
-    >
-      {isPaymentLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <QrCode className="h-4 w-4" />}
-      {isPaymentLoading ? 'Memproses...' : 'Lanjutkan Pembayaran'}
-    </button>
-  </div>
-)}
+              <div className="mt-6 border-2 border-[#C9A227] bg-[#C9A227]/10 p-4 dark:border-[#C9A227] dark:bg-[#C9A227]/15">
+                <p className="text-sm font-bold text-[#18181B] dark:text-[#FFFDF7]">
+                  ⚠️ Pesanan Anda belum dibayar.
+                </p>
+                <p className="mt-1 text-xs font-bold text-[#18181B]/70 dark:text-[#FFFDF7]/70">
+                  Selesaikan pembayaran Anda menggunakan QRIS atau metode lainnya agar pesanan dapat segera diproses oleh dapur.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => handleLanjutkanPembayaran(order)}
+                  disabled={isPaymentLoading}
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 bg-[#7F1D1D] px-5 py-3 text-sm font-black text-[#FFFDF7] border-4 border-[#18181B] shadow-[6px_6px_0px_#18181B] transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_#18181B] disabled:cursor-not-allowed disabled:opacity-50 dark:border-[#FFFDF7] dark:shadow-[6px_6px_0px_#FFFDF7] dark:hover:shadow-[10px_10px_0px_#FFFDF7]"
+                >
+                  {isPaymentLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <QrCode className="h-4 w-4" />}
+                  {isPaymentLoading ? 'Memproses...' : 'Lanjutkan Pembayaran'}
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>
